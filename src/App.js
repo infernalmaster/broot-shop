@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import ProductsPage from "./pages/ProductsPage";
+import ProductPage from "./pages/ProductPage";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Products</Link>
+            </li>
+          </ul>
+
+          <Route exact path="/" component={ProductsPage} />
+          <Route exact path="/products" component={ProductsPage} />
+          <Route path="/products/:id" component={ProductPage} />
+          <Route path="/categories/:id" component={ProductsPage} />
+        </div>
+      </Router>
     );
   }
 }
