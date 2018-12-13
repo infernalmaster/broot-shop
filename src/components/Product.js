@@ -15,7 +15,7 @@ export function Product({ product, category, addProductToCart }) {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  addProductToCart: () => dispatch.cart.addProduct(ownProps.product.id)
+  addProductToCart: () => dispatch.cart.addProduct(ownProps.product)
 });
 export default connect(
   null,

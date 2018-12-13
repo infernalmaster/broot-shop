@@ -1,3 +1,3 @@
 export default function numberOfProductsInCart(cart) {
-  return cart.products.reduce((prev, product) => prev + product.quantity, 0);
+  return cart.items.reduce((prev, item) => prev + item.quantity, 0);
 }

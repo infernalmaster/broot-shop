@@ -15,7 +15,7 @@ export function CartButton({ productsQuantity, totalPrice }) {
 
 const mapState = state => ({
   productsQuantity: numberOfProductsInCartSelector(state.cart),
-  totalPrice: totalPriceSelector(state.cart, state.products.list)
+  totalPrice: totalPriceSelector(state.cart)
 });
 
 export default connect(mapState)(CartButton);

@@ -1,10 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 
-function getProductById(products, id) {
-  return products.find(p => p.id === id);
-}
-
 function CartItem({ product, quantity }) {
   return (
     <div>
@@ -14,10 +10,6 @@ function CartItem({ product, quantity }) {
 }
 
 class CartPage extends React.Component {
-  componentDidMount() {
-    this.props.loadProducts();
-  }
-
   render() {
     return (
       <div>
@@ -25,8 +17,8 @@ class CartPage extends React.Component {
 
         {this.props.cartItems.map(item => (
           <CartItem
-            key={item.productId}
-            product={getProductById(this.props.products, item.productId)}
+            key={item.product.id}
+            product={item.product}
             quantity={item.quantity}
           />
         ))}
@@ -36,13 +28,10 @@ class CartPage extends React.Component {
 }
 
 const mapState = state => ({
-  cartItems: state.cart.products,
-  products: state.products.list
+  cartItems: state.cart.items
 });
 
-const mapDispatch = dispatch => ({
-  loadProducts: dispatch.products.loadAll
-});
+const mapDispatch = dispatch => ({});
 
 export default connect(
   mapState,
