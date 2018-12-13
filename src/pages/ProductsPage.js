@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 
 import Product from "../components/Product";
 import Category from "../components/Category";
+import CartButton from "../components/CartButton";
+
+import categoryForProductSelector from "../selectors/categoryForProductSelector";
 
 class ProductsPage extends React.Component {
   componentDidMount() {
@@ -29,6 +32,7 @@ class ProductsPage extends React.Component {
   render() {
     return (
       <div>
+        <CartButton />
         <h1>Categories</h1>
         {this.props.categories.map(category => (
           <Category key={category.id} category={category} />
@@ -36,7 +40,14 @@ class ProductsPage extends React.Component {
 
         <h1>Products Page {this.props.products.length}</h1>
         {this.props.products.map(product => (
-          <Product key={product.id} product={product} />
+          <Product
+            key={product.id}
+            product={product}
+            category={categoryForProductSelector(
+              product,
+              this.props.categories
+            )}
+          />
         ))}
       </div>
     );
