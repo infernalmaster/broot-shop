@@ -48,8 +48,12 @@ export default {
       state.items = state.items.filter(item => item.product.id !== productId);
     },
     setQuantity(state, productId, quantity) {
-      const item = state.items.find(item => item.product.id === productId);
-      item.quantity = quantity;
+      if (quantity === 0) {
+        state.items = state.items.filter(item => item.product.id !== productId);
+      } else {
+        const item = state.items.find(item => item.product.id === productId);
+        item.quantity = quantity;
+      }
     }
   }
 };
