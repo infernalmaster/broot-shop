@@ -13,8 +13,6 @@ export function CartItem({ product, quantity, addOne, removeOne, remove }) {
   );
 }
 
-const mapState = state => ({});
-
 const mapDispatch = ({ cart }, { quantity, product }) => ({
   addOne: () => cart.setQuantity(product.id, quantity + 1),
   removeOne: () => cart.setQuantity(product.id, quantity - 1),
@@ -22,6 +20,6 @@ const mapDispatch = ({ cart }, { quantity, product }) => ({
 });
 
 export default connect(
-  mapState,
+  null,
   mapDispatch
 )(CartItem);
