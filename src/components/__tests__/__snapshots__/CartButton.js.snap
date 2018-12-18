@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartButton renders correctly 1`] = `
+<a
+  href="/cart"
+  onClick={[Function]}
+>
+  Кошик (
+  5
+   продуктів на суму 
+  100.10
+   грн)
+</a>
+`;
