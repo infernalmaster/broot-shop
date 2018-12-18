@@ -57,3 +57,11 @@ export default {
     }
   }
 };
+
+export function loadStateFromLocalStorage() {
+  return JSON.parse(localStorage.getItem("cart") || '{"items": []}');
+}
+
+export function saveStateToLocalStorage(store) {
+  localStorage.setItem("cart", JSON.stringify(store.getState().cart));
+}
