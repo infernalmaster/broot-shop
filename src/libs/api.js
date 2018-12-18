@@ -1,6 +1,6 @@
 import qs from "qs";
 
-const baseUrl = "https://rest-api-broot.glitch.me/api/diana";
+const baseUrl = process.env.REACT_APP_API_URL;
 
 function checkStatus(response) {
   if (response.ok) {
