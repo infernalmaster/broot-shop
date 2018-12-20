@@ -27,7 +27,7 @@
 //     }
 //   ]
 // }
-export default {
+const cart = {
   state: {
     items: []
   },
@@ -58,10 +58,16 @@ export default {
   }
 };
 
+export default cart;
+
+const STORAGE_KEY = "cart";
+
 export function loadStateFromLocalStorage() {
-  return JSON.parse(localStorage.getItem("cart") || '{"items": []}');
+  const storageData = localStorage.getItem(STORAGE_KEY);
+  return JSON.parse(storageData) || cart.state;
 }
 
 export function saveStateToLocalStorage(store) {
-  localStorage.setItem("cart", JSON.stringify(store.getState().cart));
+  const cartState = store.getState().cart;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(cartState));
 }
