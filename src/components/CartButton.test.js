@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { CartButton } from "../CartButton";
+import { CartButton } from "./CartButton";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Link } from "react-router-dom";
 
