@@ -2,6 +2,7 @@
   "name": "shop",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://infernalmaster.github.io/broot-shop",
   "dependencies": {
     "@rematch/core": "^1.0.6",
     "@rematch/immer": "^1.0.2",
@@ -19,6 +20,8 @@
     "typescript": "^3.2.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -37,6 +40,7 @@
   "devDependencies": {
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "gh-pages": "^2.0.1",
     "prettier": "^1.15.3",
     "prop-types": "^15.6.2",
     "react-test-renderer": "^16.6.3"
